@@ -161,5 +161,6 @@ then
 	exit 0
 fi
 
-# Start sniproxy
-exec /usr/sbin/sniproxy -c ${SNIPROXY_CFG}
+# Start sniproxy, in foreground (TODO: figure out how to do this *and* drop
+# privs after binding)
+exec /usr/sbin/sniproxy -c ${SNIPROXY_CFG} -f
