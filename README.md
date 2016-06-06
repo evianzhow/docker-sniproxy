@@ -65,6 +65,13 @@ The source hostname pattern and destination address/port is specified using
 parameter pairs `SNIPROXY_TABLEn_SRCm` (source pattern) and
 `SNIPROXY_TABLEn_DESTm` (destination address).
 
+## Known issues
+
+`SNIPROXY_USER` presently has no effect as `supervisord` requires we run
+`sniproxy` in the foreground and `sniproxy` does not allow us to drop privileges
+*and* remain in the foreground.  This issue has been raised
+[upstream](https://github.com/dlundquist/sniproxy/issues/203).
+
 ## History
 
 See [CHANGELOG.md](CHANGELOG.md)
