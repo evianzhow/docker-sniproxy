@@ -113,7 +113,8 @@ do
 	echo "}"
 
 	idx=$(( ${idx} + 1 ))
-	eval port="\${SNIPROXY_PORT${idx}}"
+	eval proto="\${SNIPROXY_LISTEN${idx}_PROTO}"
+	eval port="\${SNIPROXY_LISTEN${idx}_PORT}"
 done >> ${SNIPROXY_CFG}
 
 # Proxy tables.
@@ -129,7 +130,7 @@ done >> ${SNIPROXY_CFG}
 SNIPROXY_TABLE0=''
 idx=0
 table=""
-while [ idx = 0 ] && [ -n "${table}" ]
+while [ ${idx} = 0 ] || [ -n "${table}" ]
 do
 	tidx=0
 	echo "table ${table} {"
@@ -152,6 +153,13 @@ done >> ${SNIPROXY_CFG}
 # Dump for debugging
 echo "# Generated ${SNIPROXY_CFG}"
 cat ${SNIPROXY_CFG}
+
+# Dry run mode?
+if [ -n "${SNIPROXY_DRY_RUN}" ]
+then
+	echo "Dry run mode, exiting."
+	exit 0
+fi
 
 # Start sniproxy
 exec /usr/sbin/sniproxy -c ${SNIPROXY_CFG}
