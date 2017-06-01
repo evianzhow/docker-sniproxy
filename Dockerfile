@@ -1,5 +1,5 @@
 # Pull in base image
-FROM vrtsystems/baseimage:latest
+FROM vrtsystems/baseimage:0.2.0
 MAINTAINER VRT Engineering <engineering@vrt.com.au>
 
 # Update repostory cache and install dependencies for sniproxy
