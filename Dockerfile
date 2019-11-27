@@ -9,11 +9,11 @@ RUN apt-get update \
 		gettext pkg-config libev-dev libpcre3-dev libudns-dev \
 		build-essential wget dpkg-dev \
 	&& echo "=== Retrieving package =================" \
-	&& wget -O /tmp/sniproxy_0.4.0.tar.gz \
-		https://github.com/dlundquist/sniproxy/archive/0.4.0.tar.gz \
+	&& wget -O /tmp/sniproxy_0.6.0.tar.gz \
+		https://github.com/dlundquist/sniproxy/archive/0.6.0.tar.gz \
 	&& echo "=== Building package ===================" \
-	&& ( cd /tmp && tar -xzvf sniproxy_0.4.0.tar.gz \
-		&& cd /tmp/sniproxy-0.4.0 \
+	&& ( cd /tmp && tar -xzvf sniproxy_0.6.0.tar.gz \
+		&& cd /tmp/sniproxy-0.6.0 \
 		&& ./autogen.sh \
 		&& dpkg-buildpackage -us -uc -b ) \
 	&& echo "=== Installing package =================" \
