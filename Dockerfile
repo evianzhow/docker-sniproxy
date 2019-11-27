@@ -1,6 +1,7 @@
 # Pull in base image
 FROM vrtsystems/baseimage:0.4.0
-MAINTAINER VRT Engineering <engineering@vrt.com.au>
+MAINTAINER Yifei Zhou <evianzhow@gmail.com>
+LABEL authors="VRT Engineering, Yifei Zhou"
 
 # Update repostory cache and install dependencies for sniproxy
 # For reasons unknown, a deb package is not provided by Debian.
