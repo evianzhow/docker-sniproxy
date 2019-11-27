@@ -7,7 +7,7 @@ LABEL authors="VRT Engineering, Yifei Zhou"
 # For reasons unknown, a deb package is not provided by Debian.
 RUN apt-get update \
 	&& apt-get -y install cdbs debhelper dh-autoreconf autotools-dev \
-		gettext pkg-config libev-dev libpcre3-dev libudns-dev \
+		gettext pkg-config libev-dev libpcre3-dev libudns-dev fakeroot devscripts \
 		build-essential wget dpkg-dev \
 	&& echo "=== Retrieving package =================" \
 	&& wget -O /tmp/sniproxy_0.6.0.tar.gz \
