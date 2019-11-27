@@ -7,8 +7,8 @@ LABEL authors="VRT Engineering, Yifei Zhou"
 # For reasons unknown, a deb package is not provided by Debian.
 RUN apt-get update \
 	&& apt-get -y install cdbs debhelper dh-autoreconf autotools-dev \
-		gettext pkg-config libev-dev libpcre3-dev libudns-dev fakeroot devscripts \
-		build-essential wget dpkg-dev \
+		gettext pkg-config libev-dev libpcre3-dev libudns-dev \
+		build-essential wget dpkg-dev fakeroot devscripts \
 	&& echo "=== Retrieving package =================" \
 	&& wget -O /tmp/sniproxy_0.6.0.tar.gz \
 		https://github.com/dlundquist/sniproxy/archive/0.6.0.tar.gz \
@@ -23,6 +23,7 @@ RUN apt-get update \
 	&& rm -fr /tmp/sniproxy* \
 	&& apt-get purge -y debhelper dh-autoreconf autotools-dev wget dpkg-dev \
 		pkg-config libev-dev libpcre3-dev libudns-dev build-essential \
+		devscripts \
 	&& /usr/local/sbin/docker-cleanup.sh
 
 # Expose ports for sniproxy
